@@ -67,6 +67,16 @@ The reference NixOS module publishes a public manifest at a configurable endpoin
 
 Use of the well-known location is a standards-track objective, not a claim that an IANA registration already exists.
 
+## Public review and delivery evidence
+
+- [RFC-0001: Host Capability Manifest and Compatibility Matching](docs/RFC-0001-HOST-CAPABILITIES.md)
+- [Reproducible v0.1 demo](docs/DEMO.md)
+- [Milestones and acceptance criteria](MILESTONES.md)
+- [Threat model](docs/THREAT_MODEL.md)
+- [Privacy model](docs/PRIVACY_MODEL.md)
+
+Technical feedback is requested on capability categories, evidence classes, units, version semantics, selective disclosure, discovery, TOSCA mappings and integration requirements for schedulers or hosting control planes. Use the public RFC issue so that proposals and dispositions remain inspectable.
+
 ## Scope boundaries
 
 HostCaps is not:
