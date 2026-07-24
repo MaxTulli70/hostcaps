@@ -1,0 +1,46 @@
+{
+  "spec_version": "0.1",
+  "service": {
+    "id": "org.forgejo.forgejo",
+    "name": "Forgejo",
+    "version": "10"
+  },
+  "requirements": [
+    {
+      "id": "arch",
+      "path": "capabilities.compute.architectures",
+      "op": "contains",
+      "value": "x86_64-linux",
+      "severity": "required"
+    },
+    {
+      "id": "memory",
+      "path": "capabilities.compute.memory_mib",
+      "op": "gte",
+      "value": 2048,
+      "severity": "required",
+      "max_evidence_age_seconds": 172800
+    },
+    {
+      "id": "storage",
+      "path": "capabilities.storage.persistent_gib",
+      "op": "gte",
+      "value": 20,
+      "severity": "required"
+    },
+    {
+      "id": "postgres",
+      "path": "capabilities.databases.postgresql",
+      "op": "version_gte",
+      "value": "15",
+      "severity": "preferred"
+    },
+    {
+      "id": "tls",
+      "path": "capabilities.network.tls_automation",
+      "op": "contains",
+      "value": "acme",
+      "severity": "preferred"
+    }
+  ]
+}
