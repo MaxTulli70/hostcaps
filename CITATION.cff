@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: HostCaps
+type: software
+message: "If you use HostCaps in research or infrastructure work, cite this software."
+authors:
+  - family-names: Tulli
+    given-names: Massimiliano
+version: 0.1.0
+date-released: 2026-07-24
+license: Apache-2.0
+repository-code: https://github.com/MaxTulli70/hostcaps
