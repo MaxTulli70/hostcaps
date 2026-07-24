@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hostcaps.example/spec/0.1/service-requirements.schema.json",
+  "title": "HostCaps Service Requirements Profile v0.1",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "service",
+    "requirements"
+  ],
+  "properties": {
+    "spec_version": {
+      "const": "0.1"
+    },
+    "service": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "path",
+          "op"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "op": {
+            "enum": [
+              "eq",
+              "neq",
+              "gte",
+              "lte",
+              "contains",
+              "contains_any",
+              "exists",
+              "version_gte"
+            ]
+          },
+          "value": {},
+          "severity": {
+            "enum": [
+              "required",
+              "preferred"
+            ]
+          },
+          "max_evidence_age_seconds": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
