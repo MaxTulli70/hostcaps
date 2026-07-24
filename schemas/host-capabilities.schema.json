@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hostcaps.example/spec/0.1/host-capabilities.schema.json",
+  "title": "HostCaps Host Capability Manifest v0.1",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "host",
+    "capabilities"
+  ],
+  "properties": {
+    "spec_version": {
+      "const": "0.1"
+    },
+    "host": {
+      "type": "object",
+      "required": [
+        "id",
+        "generated_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "operator": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "method",
+          "collected_at"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "method": {
+            "enum": [
+              "observed",
+              "configured",
+              "operator_declared",
+              "third_party"
+            ]
+          },
+          "collected_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "disclosure": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
