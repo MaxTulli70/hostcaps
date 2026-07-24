@@ -1,0 +1,45 @@
+{
+  "spec_version": "0.1",
+  "service": {
+    "id": "org.matrix.synapse",
+    "name": "Matrix Synapse",
+    "version": "1"
+  },
+  "requirements": [
+    {
+      "id": "memory",
+      "path": "capabilities.compute.memory_mib",
+      "op": "gte",
+      "value": 4096,
+      "severity": "required"
+    },
+    {
+      "id": "postgres",
+      "path": "capabilities.databases.postgresql",
+      "op": "version_gte",
+      "value": "15",
+      "severity": "required"
+    },
+    {
+      "id": "ipv6",
+      "path": "capabilities.network.ipv6",
+      "op": "eq",
+      "value": true,
+      "severity": "preferred"
+    },
+    {
+      "id": "federation",
+      "path": "capabilities.federation.matrix",
+      "op": "eq",
+      "value": true,
+      "severity": "required"
+    },
+    {
+      "id": "tls",
+      "path": "capabilities.network.tls_automation",
+      "op": "contains",
+      "value": "acme",
+      "severity": "preferred"
+    }
+  ]
+}
