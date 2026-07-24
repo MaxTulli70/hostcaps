@@ -1,0 +1,7 @@
+{
+  "view": "public",
+  "remove_paths": [
+    "host.operator_contact",
+    "host.internal_asset_id"
+  ]
+}
