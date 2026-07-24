@@ -1,0 +1,99 @@
+{
+  "spec_version": "0.1",
+  "host": {
+    "id": "urn:hostcaps:example:rome-1",
+    "generated_at": "2026-07-24T15:00:00Z",
+    "expires_at": "2026-07-25T15:00:00Z",
+    "operator": "Example Cooperative Host",
+    "operator_contact": "ops@example.invalid",
+    "region": "eu-south",
+    "internal_asset_id": "rack-03-node-07"
+  },
+  "capabilities": {
+    "compute": {
+      "architectures": [
+        "x86_64-linux"
+      ],
+      "cpu_cores": 8,
+      "memory_mib": 16384
+    },
+    "storage": {
+      "persistent_gib": 500,
+      "snapshots": true,
+      "volume_types": [
+        "ssd"
+      ]
+    },
+    "network": {
+      "ipv4": true,
+      "ipv6": true,
+      "inbound_tcp_ports": [
+        80,
+        443
+      ],
+      "dns_api": true,
+      "tls_automation": [
+        "acme"
+      ]
+    },
+    "runtime": {
+      "nixos": true,
+      "nixos_release": "24.11",
+      "nix_version": "2.24.11",
+      "virtualisation": [
+        "systemd-nspawn"
+      ]
+    },
+    "databases": {
+      "postgresql": [
+        "15",
+        "16"
+      ],
+      "mariadb": [
+        "10.11"
+      ],
+      "sqlite": true
+    },
+    "security": {
+      "tpm2": true,
+      "secure_boot": false,
+      "systemd_sandboxing": true
+    },
+    "federation": {
+      "activitypub": true,
+      "matrix": true,
+      "webfinger": true
+    },
+    "operations": {
+      "backups": true,
+      "restore_tests": false,
+      "monitoring": true
+    }
+  },
+  "evidence": [
+    {
+      "path": "capabilities.compute.memory_mib",
+      "method": "observed",
+      "collected_at": "2026-07-24T15:00:00Z",
+      "source": "/proc/meminfo"
+    },
+    {
+      "path": "capabilities.storage.snapshots",
+      "method": "configured",
+      "collected_at": "2026-07-24T15:00:00Z",
+      "source": "NixOS configuration"
+    },
+    {
+      "path": "capabilities.network.ipv6",
+      "method": "observed",
+      "collected_at": "2026-07-24T15:00:00Z",
+      "source": "read-only network probe"
+    },
+    {
+      "path": "capabilities.databases.postgresql",
+      "method": "configured",
+      "collected_at": "2026-07-24T15:00:00Z",
+      "source": "NixOS configuration"
+    }
+  ]
+}
